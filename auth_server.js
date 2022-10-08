@@ -4,7 +4,7 @@ const express = require('express')
 const app = express()
 const jwt = require('jsonwebtoken')
 
-const refreshTokens = [] // normally stored in DB or Redis Cache
+let refreshTokens = [] // normally stored in DB or Redis Cache
 
 app.listen(4000, () => {
     console.log('Listening on 3000')
@@ -34,6 +34,11 @@ app.post('/refresh_token', (req, res) => {
         const accessToken = generateAccessToken({ name: user.name })
         res.json({ accessToken })
     })
+})
+
+app.delete('/logout', (req, res) => {
+    refreshTokens = refreshTokens.filter(t => t !== req.body.refreshToken)
+    res.sendStatus(204)
 })
 
 function generateAccessToken(user) {

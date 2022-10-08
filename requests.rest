@@ -3,7 +3,7 @@ POST http://localhost:4000/login
 Content-Type: application/json
 
 {
-    "username": "Jim"
+    "username": "Dwight"
 }
 
 ###
@@ -13,11 +13,21 @@ POST http://localhost:4000/refresh_token
 Content-Type: application/json
 
 {
-    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwiaWF0IjoxNjY1MjI4MDU3fQ.SEG9eTfw6--S8qwpNi6C2HlHjOpqiVLPwZkPxsgx9sQ"
+    "refresh_token": ""
+}
+
+###
+
+// Logout (invalidate refresh token)
+DELETE http://localhost:4000/logout
+Content-Type: application/json
+
+{
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRHdpZ2h0IiwiaWF0IjoxNjY1MjQwNjU1fQ.W8mzrHrFzTKCgFUVIZgcuriNNSXPa03LSX_rQQaJmxI"
 }
 
 ###
 
 # Posts for current user
 GET http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwiaWF0IjoxNjY1MjI4MTUyLCJleHAiOjE2NjUyMjgyMTJ9.YN728fBuGym8taq3X61LOHHru6rKmN0IhPqUBRHjRjM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRHdpZ2h0IiwiaWF0IjoxNjY1MjQwNjU1LCJleHAiOjE2NjUyNDA3MTV9.7CXOsT9rwriiR3xJej1EClwIHsLYUCHQDQRW0Fd4DQM
