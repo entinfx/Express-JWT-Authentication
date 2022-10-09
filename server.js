@@ -15,11 +15,11 @@ const posts = [
     { username: "Dwight", title: "MICHAEL!"}
 ]
 
-app.get('/posts', authenticateAccessToken, (req, res) => {
+app.get('/posts', verifyAccessToken, (req, res) => {
     res.json(posts.filter(p => p.username === req.user.name))
 })
 
-function authenticateAccessToken(req, res, next) {
+function verifyAccessToken(req, res, next) {
     const authHeader = req.headers['authorization']
     const token = authHeader?.split(' ')[1]
     if (!token) return res.sendStatus(401)
